@@ -1,0 +1,23 @@
+[Unit]
+Description=Discord Weapon Bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=weapon-bot
+Group=weapon-bot
+WorkingDirectory=/opt/nagi-blacksmith
+EnvironmentFile=/etc/weapon-bot.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/nagi-blacksmith/.venv/bin/python /opt/nagi-blacksmith/main.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/nagi-blacksmith/data
+
+[Install]
+WantedBy=multi-user.target

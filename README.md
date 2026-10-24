@@ -29,6 +29,7 @@ Replitで作成したPython製Discord Botです。Discord Gatewayへの接続の
 2. GitHubのリポジトリ設定から、VPSで作ったSSH公開鍵を読み取り専用Deploy keyとして登録し、Botユーザーでクローンします。秘密鍵はVPS内だけに保管し、GitHubやチャットへ貼らないでください。
 
    
+   sudo -u weapon-bot -H install -d -m 700 /var/lib/weapon-bot/.ssh
    sudo -u weapon-bot -H ssh-keygen -t ed25519 -C "nagi-blacksmith-conoha" -f /var/lib/weapon-bot/.ssh/id_ed25519 -N ""
    sudo cat /var/lib/weapon-bot/.ssh/id_ed25519.pub
    sudo -u weapon-bot -H git clone git@github.com:sakura36912/nagi-blacksmith.git /opt/nagi-blacksmith
